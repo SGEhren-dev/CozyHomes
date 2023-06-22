@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "cozyhomes",
+	"version": "${version}",
+	"name": "CozyHomes",
+	"description": "Custom mod written for Survival Craft that implements homes",
+	"authors": [
+		"Ehren Grenlund"
+	],
+	"contact": {
+		"homepage": "https://ehrengrenlund.com"
+	},
+	"license": "ISC",
+	"icon": "assets/cozyhomes/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.ehrengrenlund.cozyhomes.HomeMod"
+		],
+		"cardinal-components-entity": [
+			"com.ehrengrenlund.cozyhomes.data.PlayerInitializer"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"custom": {
+		"cardinal-components": [
+			"cozyhomes:homes"
+		]
+	}
+}
