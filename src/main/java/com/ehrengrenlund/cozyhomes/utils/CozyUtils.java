@@ -19,7 +19,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
 public class CozyUtils {
-    private static final String BossBarPrefix = "CozyHomes";
+    private static final String BossBarPrefix = "cozyhomes-";
     private static CommandBossBar countdownBar = null;
     private static double counter = 0;
     private static Vec3d lastPosition = null;
@@ -32,7 +32,7 @@ public class CozyUtils {
         lastPosition = player.getPos();
 
         if (showCountdownBar) {
-            countdownBar = server.getBossBarManager().add(new Identifier(BossBarPrefix + player.getUuidAsString()), Text.literal("Teleporting, stand still!").formatted(Formatting.AQUA));
+            countdownBar = server.getBossBarManager().add(new Identifier(BossBarPrefix + player.getUuidAsString()), Text.literal("Teleporting"));
             countdownBar.addPlayer(player);
             countdownBar.setColor(BossBar.Color.BLUE);
         }

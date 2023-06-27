@@ -12,10 +12,13 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 import java.time.Instant;
@@ -107,10 +110,8 @@ public class HomeCommand {
             return 1;
 
         CozyUtils.InitiateTeleport(serverConfig.getShowBossBar(), serverConfig.getStandStillTime(), player, () -> {
-            cozyLogger.info(home.get().GetDimId().toString());
-
             player.teleport(
-                    ctx.getSource().getServer().getWorld(World.OVERWORLD),
+                    ctx.getSource().getServer().getWorld(RegistryKey.of(RegistryKeys.WORLD, home.get().GetDimId())),
                     home.get().GetX(), home.get().GetY(), home.get().GetZ(),
                     home.get().GetYaw(), home.get().GetPitch()
             );
